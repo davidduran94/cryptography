@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS= -c -Wall -g3
-SOURCES= test.o 
+SOURCES= test.o exp.o
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE= t
 
@@ -11,6 +11,9 @@ rsa: $(SOURCES)
 
 test.o: test.c
 	$(CC) $(CFLAGS) test.c
+
+exp.o: exp.c
+	$(CC) $(CFLAGS) exp.c
 
 clean:
 	rm *o $(EXECUTABLE)
