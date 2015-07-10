@@ -2,60 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "exp.h"
-
-#define TRUE 1;
-#define FALSE 0;
-
-
-int rn(int mod){	
-	srand(time(NULL));
-	int r = rand();
-	return r%mod;
-}
-
-int calcN(int a,int b){
-	return a*b;
-}
-
-int phiN(int a, int b){
-	return (a-1)*(b-1);
-}
-
-int * calcularPrimos(unsigned int limite,int *c)
-{
-    int i;
-    int mul;
-    int *a = (int *) malloc(limite/2);
-    char *compuesto = (char *)malloc(limite +1);
-    compuesto[1] = TRUE;
-    (*c) =0;
-        //idenficar los numeros compuestos
-        for (i = 2; i <= limite; i++) {
-            if (!compuesto[i]) {
-                // 'i' es primo
-                a[(*c)]= i;
-                (*c)++;
-                mul = 2;
-                while (i * mul <= limite) {
-                    compuesto [i * mul] = TRUE;
-                    mul++;
-                }
-            }
-        }
-        return a;
-}
-
-int main(int argc,char *argv[]){
-	int i=0,c;
-	int *primos;
-	primos = calcularPrimos((unsigned int) 1000000, &c);
-	do{
-		printf("%d\n",primos[i]);
-		i++;
-	}while(i<c);
-	
-	return 0;
-}
+#include "rsa.h"
 
 	/*
 	double a = 3, base = 29,res;
@@ -77,3 +24,15 @@ int main(int argc,char *argv[]){
 	*/
 	//int t=1311,e=134,n=39979;
 	//printf("%d\n",exp(t,e,n));
+
+int main(int argc,char *argv[]){
+	int i=0,c;
+	int *primos;
+	primos = calcularPrimos((unsigned int) 1000000, &c);
+	do{
+		printf("%d\n",primos[i]);
+		i++;
+	}while(i<c);
+	
+	return 0;
+}

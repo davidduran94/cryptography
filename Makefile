@@ -1,12 +1,12 @@
 CC=gcc
 CFLAGS= -c -Wall -g3
-SOURCES= test.o exp.o
+SOURCES= test.o exp.o rsa.o
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE= t
 
-all: rsa 
+all: proyecto
 
-rsa: $(SOURCES)
+proyecto: $(SOURCES)
 	$(CC) $(SOURCES) -o $(EXECUTABLE) -lm
 
 test.o: test.c
@@ -14,6 +14,9 @@ test.o: test.c
 
 exp.o: exp.c
 	$(CC) $(CFLAGS) exp.c
+
+rsa.o: rsa.c
+	$(CC) $(CFLAGS) rsa.c
 
 clean:
 	rm *o $(EXECUTABLE)
