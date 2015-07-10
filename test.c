@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <math.h>
+#include "exp.h"
+
+#define TRUE 1;
+#define FALSE 0;
+
 
 int rn(int mod){	
 	srand(time(NULL));
@@ -17,54 +21,48 @@ int phiN(int a, int b){
 	return (a-1)*(b-1);
 }
 
-
-int binex(double a){
-	int e=0,c=1;
-	while(c <= a){
-		e++;
-		c = pow(2,e);
-	}
-	return e-1;
-}
-int elevar(int a, int n){
-	int j;
-	double aux=1;
-	for(j=0;j<n;j++)
-		aux = aux*a;
-	return aux;
-} 
-
-double elevarA(double base, int exponente, int n){
-	int i;
-	double res=1;
-	for(i=0;i<exponente;i++){
-		res = res * base;
-		res = fmod(res,n);
-	}
-	return res;
+int * calcularPrimos(unsigned int limite,int *c)
+{
+    int i;
+    int mul;
+    int *a = (int *) malloc(limite/2);
+    char *compuesto = (char *)malloc(limite +1);
+    compuesto[1] = TRUE;
+    (*c) =0;
+        //idenficar los numeros compuestos
+        for (i = 2; i <= limite; i++) {
+            if (!compuesto[i]) {
+                // 'i' es primo
+                a[(*c)]= i;
+                (*c)++;
+                mul = 2;
+                while (i * mul <= limite) {
+                    compuesto [i * mul] = TRUE;
+                    mul++;
+                }
+            }
+        }
+        return a;
 }
 
-double Power(double a, double base , int n){
-	double res=1;
-	int k;
-	do{
-		k = binex(a);
-		a= a- elevar(2,k);
-		//printf("exponente %d\n ", elevar(2,k)  ) ;
-		res = res * elevarA( base, elevar(2,k), n);
-		//printf("exponenciacion : %.2f\n", elevarA( base, elevar(2,k), n) );
-	}while(a > 0);
-	return fmod(res,n);
-}
 int main(int argc,char *argv[]){
+	int i=0,c;
+	int *primos;
+	primos = calcularPrimos((unsigned int) 1000000, &c);
+	do{
+		printf("%d\n",primos[i]);
+		i++;
+	}while(i<c);
+	
+	return 0;
+}
+
+	/*
 	double a = 3, base = 29,res;
 	int n=33;
 	res = Power(a,base,n);
 	printf("Resultado %.2f\n", res);
-	
-
-	return 0;
-}
+	*/
 
 	/*
 	int p,q,e,d,n,m,c;
