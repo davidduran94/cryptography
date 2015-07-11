@@ -39,13 +39,12 @@ int ec(int a, int b)
 }
 
 int rn(int mod){	
-	srand(time(NULL));
-	int r = rand();
-	return r%mod;
+	return rand()%mod;
 }
 
-int calcN(int a,int b){
-	return a*b;
+double calcN(int a,int b){
+  double res = a*b;
+	return res;
 }
 
 int phiN(int a, int b){
@@ -74,4 +73,33 @@ int * calcularPrimos(unsigned int limite,int *c)
             }
         }
         return a;
+}
+
+void toFile(int c,int *primos){
+
+  FILE * f1;
+    f1 = fopen("prime", "w");
+    
+    //fprintf(f1,"%d\n",primos[i]);
+    fwrite( &c , sizeof(int) , 1 , f1 );
+    fwrite(primos , sizeof(int) , c , f1 );
+
+      //fprintf(f1,"%d ",i);
+    fclose(f1);
+}
+
+void fromFile(int *primos,int *c){
+
+  FILE * f1;
+    f1 = fopen("prime", "r");
+    
+    //fprintf(f1,"%d\n",primos[i]);
+    printf("leeyendo de archivo\n");
+    fread(c , sizeof(int) , 1 , f1);
+    fread(primos , sizeof(int) , (size_t)(*c) , f1 );
+
+      //fprintf(f1,"%d ",i);
+    fclose(f1);
+    //printf("%d\n ",*c);
+    printf("leectura exitosa\n");
 }

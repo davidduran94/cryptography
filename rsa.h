@@ -8,6 +8,9 @@
 
 #define TRUE 1;
 #define FALSE 0;
+
+static const int limite = 10000;
+
 /* ^^ these are the include guards */
 
 /* Prototypes for the functions */
@@ -18,10 +21,14 @@ int ec(int a, int b);
 
 int rn(int mod);
 
-int calcN(int a,int b);
+double calcN(int a,int b);
 
 int phiN(int a, int b);
 
 int * calcularPrimos(unsigned int limite,int *c);
+
+void toFile(int c,int *primos);
+
+void fromFile(int *primos,int *c);
 
 #endif

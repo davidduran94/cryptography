@@ -24,15 +24,31 @@
 	*/
 	//int t=1311,e=134,n=39979;
 	//printf("%d\n",exp(t,e,n));
-
-int main(int argc,char *argv[]){
-	int i=0,c;
-	int *primos;
-	primos = calcularPrimos((unsigned int) 1000000, &c);
+	/*
 	do{
 		printf("%d\n",primos[i]);
 		i++;
 	}while(i<c);
+	*/
+
+int main(int argc,char *argv[]){
+	int c;
+	double p,q,n;
+	int *primos;
+	primos = (int *) malloc( limite/2 );
+	//primos = calcularPrimos((unsigned int) limite, &c);
+	//toFile(c,primos);
+	fromFile(primos , &c);
+	srand(time(NULL));
+	p = primos[rn(c)];
+	q = primos[rn(c)];
+	printf("p %.0f q :%.0f\n",p,q);
+	n = calcN(p,q);
+	printf("n :  %.0f\n",n);
+	/*
+	Escojer un numero e entre 1 < e <= phi(n)  mcd(n,e)=1 
+	calcular su inverso
+	*/
 	
 	return 0;
 }
