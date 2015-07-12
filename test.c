@@ -37,8 +37,8 @@ int main(int argc,char *argv[]){
 	int p,q,n,phin,e;
 	int *primos;
 	primos = (int *) malloc( limite/2 );
-	//primos = calcularPrimos((unsigned int) limite, &c);
-	//toFile(c,primos);
+	primos = calcularPrimos((unsigned int) limite, &c);
+	toFile(c,primos);
 	fromFile(primos , &c);
 	srand(time(NULL));
 	p = 17;//primos[rn(c)];

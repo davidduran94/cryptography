@@ -9,7 +9,7 @@
 #define TRUE 1;
 #define FALSE 0;
 
-static const int limite = 10000;
+static const int limite = 100;
 
 /* ^^ these are the include guards */
 
@@ -36,4 +36,6 @@ void toFile(int c,int *primos);
 void fromFile(int *primos,int *c);
 
 void usageCrypt(void);
+
+int mod(int k, int n);
 #endif

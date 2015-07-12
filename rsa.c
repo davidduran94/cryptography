@@ -148,3 +148,8 @@ void usageCrypt(void)
   printf(" -d<name>\n");
   exit (8);
 }
+
+int mod(int k, int n) 
+{  
+    return ((k %= n) < 0) ? k+n : k;  
+}
