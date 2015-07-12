@@ -21,6 +21,27 @@ void extEuclid(int a, int b, int *x, int *y, int *d){
 
 }
 
+void Inverso(double a, double b, double *x, double *y, double *d){
+  double q, r, x1, x2, y1, y2;
+
+  if (b == 0) {
+    *d = a, *x = 1, *y = 0;
+    return;
+  }
+
+  x2 = 1, x1 = 0, y2 = 0, y1 = 1;
+
+  while (b > 0) {
+    q = a / b, r = a - q * b;
+    *x = x2 - q * x1, *y = y2 - q * y1;
+    a = b, b = r;
+    x2 = x1, x1 = *x, y2 = y1, y1 = *y;
+
+  }
+  *d = a, *x = x2, *y = y2;
+
+}
+
 
 int ec(int a, int b)
 {
@@ -30,6 +51,22 @@ int ec(int a, int b)
  while (resto>0) {
   cociente=a/b;
   resto=a%b;
+  //printf("%d = %dx%d + %d\n",a,b,cociente,resto);
+  a=b;
+  b=resto;
+ }
+
+ return a;
+}
+
+double euclides(double a, double b)
+{
+ double cociente,resto=1;
+
+ if (a<b) {cociente=a; a=b; b=cociente;}
+ while (resto>0) {
+  cociente=a/b;
+  resto=fmod(a, b);
   //printf("%d = %dx%d + %d\n",a,b,cociente,resto);
   a=b;
   b=resto;

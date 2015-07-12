@@ -33,18 +33,36 @@
 
 int main(int argc,char *argv[]){
 	int c;
-	double p,q,n;
+	int f,x,y;
+	int p,q,n,phin,e;
 	int *primos;
 	primos = (int *) malloc( limite/2 );
 	//primos = calcularPrimos((unsigned int) limite, &c);
 	//toFile(c,primos);
 	fromFile(primos , &c);
 	srand(time(NULL));
-	p = primos[rn(c)];
-	q = primos[rn(c)];
-	printf("p %.0f q :%.0f\n",p,q);
+	p = 17;//primos[rn(c)];
+	q = 11;//primos[rn(c)];
+	printf("p %d q :%d\n",p,q);
 	n = calcN(p,q);
-	printf("n :  %.0f\n",n);
+	printf("n :  %d\n",n);
+	phin = phiN(p, q);
+	printf("phi (n) = %d\n",phin);
+	/*
+	do{
+		e = rand();
+		e = fmod(e, phin);
+		printf(" e : %.0f\n",e);
+		//printf("mcd () = %.0f\n",euclides(n, e));
+	}while( e <= 0 && euclides(phin, e) == 1);
+	*/
+	e = 7;
+	//Inverso(e,n,&f,&x,&y);
+	extEuclid((int)e, (int)phin, &x, &y, &f);
+	printf("x = %d y = %d f = %d\n", x, y, f);
+
+	printf("RSA public Key : (  %d , %d ) \n",e,n);
+	printf("RSA secret Key : (  %d , %d ) \n",x,n);
 	/*
 	Escojer un numero e entre 1 < e <= phi(n)  mcd(n,e)=1 
 	calcular su inverso

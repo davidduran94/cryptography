@@ -17,7 +17,11 @@ static const int limite = 10000;
 /* Sums two ints */
 void extEuclid(int a, int b, int *x, int *y, int *d);
 
+void Inverso(double a, double b, double *x, double *y, double *d);
+
 int ec(int a, int b);
+
+double euclides(double a, double b);
 
 int rn(int mod);
 
