@@ -1,0 +1,20 @@
+/****************************************************************************
+					Lista de Ejemplos de USO de MyPGP
+
+
+    Cifrar CTR con W como valor NONCE
+			>./MyPGP ArchivoEntrada.txt ArchivoSalida.txt 1011010101 CTR:Z
+
+    Descifrar CBC con F como Vector Inicial 
+			>./MyPGP ArchivoEntrada.txt ArchivoSalida.txt 1001101101 CBC:F:D   
+
+    Cifrar OFB con Z como Vector Inicial	
+    		>./MyPGP ArchivoEntrada.txt ArchivoSalida.txt 0001101101 OFB:Z:E
+
+    Descifrar CFB con Q como Vector Inicial	
+    		>./MyPGP ArchivoEntrada.txt ArchivoSalida.txt 1111100001 CFB:Q:2 	 	
+
+   	Descifrar ECB 
+      		>./MyPGP ArchivoEntrada.txt ArchivoSalida.txt 0001100101 ECB:0:2 
+
+*****************************************************************************/
