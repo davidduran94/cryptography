@@ -35,4 +35,5 @@ void toFile(int c,int *primos);
 
 void fromFile(int *primos,int *c);
 
+void usageCrypt(void);
 #endif

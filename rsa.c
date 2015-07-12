@@ -140,3 +140,11 @@ void fromFile(int *primos,int *c){
     //printf("%d\n ",*c);
     printf("leectura exitosa\n");
 }
+
+void usageCrypt(void)
+{
+  printf("Usage:\n");
+  printf(" -f<name>\n");
+  printf(" -d<name>\n");
+  exit (8);
+}
